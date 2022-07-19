@@ -1,0 +1,10 @@
+
+# this is purely a schema, no queries or mutations
+
+type User {
+  userId: String! @id
+  # by setting @id on email we force it to be unique, plus we can search user by email then
+  email: String! @id
+  name: String!
+  picture: String
+}

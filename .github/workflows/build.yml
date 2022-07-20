@@ -31,7 +31,7 @@ jobs:
       #   run: yarn database:start && sleep 20
 
       - name: Write Env
-        run: echo 'NEXT_APP_DOMAIN="http://localhost:3000"\nDGRAPH_API="http://localhost:8080"\n' >> .env
+        run: cp .env.development .env
 
       - run: cat .env
 

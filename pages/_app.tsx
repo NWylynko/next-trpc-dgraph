@@ -9,6 +9,9 @@ import { site } from "../site";
 import { theme } from "../theme";
 import { AppProps } from '../types/AppProps';
 
+import "@fontsource/raleway"
+import "@fontsource/oswald"
+
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
@@ -17,6 +20,14 @@ const GlobalStyle = createGlobalStyle`
 
     background-color: ${({ theme }) => theme.colours.background};
     color: ${({ theme }) => theme.colours.foreground};
+
+    font-family: "Raleway", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Oswald", sans-serif;
+
+    margin: 0px;
   }
 `
 

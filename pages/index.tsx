@@ -7,7 +7,8 @@ const Home: Page = () => {
 
   return (
     <>
-      <span>Welcome</span>
+      <h2>Welcome</h2>
+      <span>Have a good time</span>
       <pre>{JSON.stringify(data)}</pre>
     </>
   )

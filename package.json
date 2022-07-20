@@ -23,6 +23,8 @@
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@bluesky-digital-labs/next-firebase-auth": "^0.8.0",
+    "@fontsource/oswald": "^4.5.9",
+    "@fontsource/raleway": "^4.5.9",
     "@react-icons/all-files": "^4.1.0",
     "@sentry/nextjs": "^7.7.0",
     "@trpc/client": "^10.0.0-alpha.38",

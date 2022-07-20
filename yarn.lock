@@ -947,6 +947,16 @@
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.6.2.tgz#6d05fa126104c9907573364dc04147b89b530e15"
   integrity sha512-zThUKcqIU6utWzM93uEvhlh8qj8A5LMPFJPvk/ODb+8GSSif19xM2Lw1M2ijyBy8+6skSkQBbavPzOU5Oh/8tQ==
 
+"@fontsource/oswald@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/oswald/-/oswald-4.5.9.tgz#204990e6601c7c18ae3defe2c530dd24469d16b2"
+  integrity sha512-+VDR5CB8aYbAEltbPzbnQrkLcxDYEyipiVpDnQDYlo8y/Jgvf57LvEP8KezQNnx6M+SucwfqVGsaoig/fCRHzA==
+
+"@fontsource/raleway@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/raleway/-/raleway-4.5.9.tgz#850cf0bf4e0ba624210d60b13337108d9bffbb76"
+  integrity sha512-K0GFmuJ5mlEX2czTzRHLyiO2dJDS+GGdtPkPOempss4ElgkYLYpgyqBMcJno5WeSOC9ABGMmtSJ6RtVVljUBzw==
+
 "@google-cloud/firestore@^5.0.2":
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@google-cloud/firestore/-/firestore-5.0.2.tgz#36923fde45987f928a220d347f341c5602f9e340"

@@ -2,23 +2,27 @@ import admin from 'firebase-admin';
 import { inProduction } from "../config/inProduction";
 import fs from "fs"
 import path from "path"
+import { site } from '../site';
 
-if (admin.apps.length === 0) {
-  if (inProduction) {
+if (site.services.firebase === true) {
+  if (admin.apps.length === 0) {
+    if (inProduction) {
 
-    admin.initializeApp({
-      storageBucket: "pumped-kicks.appspot.com"
-    })
+      admin.initializeApp({
+        storageBucket: "pumped-kicks.appspot.com"
+      })
 
-  } else {
+    } else {
 
-    const serviceAccountPath = path.join(process.cwd(), "./service-account.json")
-    const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath).toString())
+      const serviceAccountPath = path.join(process.cwd(), "./service-account.json")
+      const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath).toString())
 
-    admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
-      storageBucket: "pumped-kicks.appspot.com"
-    });
+      admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+        storageBucket: "pumped-kicks.appspot.com"
+      });
+    }
+
   }
-
 }
+

@@ -2,10 +2,20 @@ import { TRPCError } from '@trpc/server';
 import { NextApiRequest } from 'next/types';
 import "../lib/initializeFirebase";
 import admin from 'firebase-admin';
+import { site } from '../site';
+import type { Auth } from 'firebase-admin/lib/auth/auth';
 
-const auth = admin.auth();
+let auth: Auth | undefined = undefined;
+
+if (site.services.firebase) {
+  auth = admin.auth();
+}
 
 export async function getUserFromHeader(req: NextApiRequest) {
+
+  if (!auth) {
+    return;
+  }
 
   const jwt = req.cookies.jwt ?? req.headers['x-jwt'] as string | undefined;
 

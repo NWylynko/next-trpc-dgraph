@@ -43,3 +43,6 @@ server/types/graphql.ts
 
 # firebase
 service-account.json
+
+# Sentry
+.sentryclirc

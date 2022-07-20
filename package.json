@@ -9,6 +9,7 @@
     "start": "run-p database:dev web:start",
     "lint": "next lint",
     "database:dev": "docker-compose up",
+    "database:start": "docker-compose up -d",
     "types:check": "tsc --noEmit",
     "types:dev": "tsc --noEmit -w",
     "web:dev": "next dev",

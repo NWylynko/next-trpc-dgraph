@@ -1,16 +1,20 @@
-import type { NextPage } from 'next'
 import { trpc } from '../lib/trpc'
+import { Page } from '../types/Page';
 
-const Home: NextPage = () => {
+const Home: Page = () => {
 
-  const { data } = trpc.hello.hello.useQuery();
+  const { data } = trpc.hello.me.useQuery({ name: "next" });
 
   return (
-    <div>
+    <>
       <span>Welcome</span>
       <pre>{JSON.stringify(data)}</pre>
-    </div>
+    </>
   )
 }
+
+// this is how to set the layout
+// but this is useless as it uses default automatically
+Home.layout = "default"
 
 export default Home

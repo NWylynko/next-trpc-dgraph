@@ -1,12 +1,13 @@
 import { NextSeo } from 'next-seo';
-import { AppType } from 'next/dist/shared/lib/utils';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { Firebase } from '../components/Firebase';
+import { getLayout } from "../components/Layouts";
 import { Plausible } from "../components/Plausible";
 import { withTRPC } from "../lib/trpc";
 import { site } from "../site";
 import { theme } from "../theme";
+import { AppProps } from '../types/AppProps';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -19,7 +20,12 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const App: AppType = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps) => {
+
+  // pages can set there layout, if they don't it uses the default layout
+  // checkout the layouts/index.ts file
+  const { Header, Main, Footer } = getLayout(Component.layout ?? "default")
+
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -27,7 +33,11 @@ const App: AppType = ({ Component, pageProps }) => {
           <Plausible>
             <GlobalStyle />
             <NextSeo titleTemplate={site.titleTemplate} />
-            <Component {...pageProps} />
+            <Header />
+            <Main>
+              <Component {...pageProps} />
+            </Main>
+            <Footer />
             <ReactQueryDevtools />
           </Plausible>
         </Firebase>

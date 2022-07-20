@@ -3,7 +3,11 @@ import { z } from "zod";
 import { getMethods } from "./methods";
 
 export const helloRouter = t.router({
-  hello: t.procedure.query(async () => {
-    return { hello: "world" }
-  })
+  me: t.procedure
+    .input(z.object({
+      name: z.string()
+    }))
+    .query(async ({ input }) => {
+      return { hello: input.name }
+    })
 });

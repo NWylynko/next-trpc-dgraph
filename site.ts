@@ -1,13 +1,13 @@
-
-const domain = process.env.NEXT_APP_DOMAIN
-
-if (!domain) {
-  throw new Error(`NEXT_APP_DOMAIN is not defined in environment`)
-}
+import { getDomain } from "./config/getDomain";
 
 export const site = {
-  domain,
-  titleTemplate: "%s • site"
+  domain: getDomain(),
+  titleTemplate: "%s • site",
+  services: {
+    // sentry: false, // I don't know if it will be possible to disable sentry
+    plausible: false,
+    firebase: false
+  }
 }
 
 export type Site = typeof site;

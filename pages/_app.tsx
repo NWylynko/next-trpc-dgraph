@@ -1,9 +1,11 @@
-import { FirebaseProvider } from "@bluesky-digital-labs/next-firebase-auth";
-import { ReactQueryDevtools } from 'react-query/devtools';
 import { NextSeo } from 'next-seo';
 import { AppType } from 'next/dist/shared/lib/utils';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { Firebase } from '../components/Firebase';
+import { Plausible } from "../components/Plausible";
 import { withTRPC } from "../lib/trpc";
+import { site } from "../site";
 import { theme } from "../theme";
 
 const GlobalStyle = createGlobalStyle`
@@ -21,12 +23,14 @@ const App: AppType = ({ Component, pageProps }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <FirebaseProvider>
-          <GlobalStyle />
-          <NextSeo titleTemplate='%s - PUMPED 👟' />
-          <Component {...pageProps} />
-          <ReactQueryDevtools />
-        </FirebaseProvider>
+        <Firebase>
+          <Plausible>
+            <GlobalStyle />
+            <NextSeo titleTemplate={site.titleTemplate} />
+            <Component {...pageProps} />
+            <ReactQueryDevtools />
+          </Plausible>
+        </Firebase>
       </ThemeProvider>
     </>
   );

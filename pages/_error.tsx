@@ -1,8 +1,11 @@
-import NextErrorComponent from 'next/error';
+import NextErrorComponent, { ErrorProps } from 'next/error';
+import { NextPage } from 'next'
 
 import * as Sentry from '@sentry/nextjs';
 
-const MyError = ({ statusCode, hasGetInitialPropsRun, err }) => {
+type SentryErrorProps = ErrorProps & { hasGetInitialPropsRun: boolean, err: any }
+
+const MyError: NextPage<SentryErrorProps> = ({ statusCode, hasGetInitialPropsRun, err }) => {
   if (!hasGetInitialPropsRun && err) {
     // getInitialProps is not called in case of
     // https://github.com/vercel/next.js/issues/8592. As a workaround, we pass
@@ -15,8 +18,8 @@ const MyError = ({ statusCode, hasGetInitialPropsRun, err }) => {
 };
 
 MyError.getInitialProps = async (context) => {
-  const errorInitialProps = await NextErrorComponent.getInitialProps(context);
-  
+  const errorInitialProps = await NextErrorComponent.getInitialProps(context) as SentryErrorProps;
+
   const { res, err, asPath } = context;
 
   // Workaround for https://github.com/vercel/next.js/issues/8592, mark when
@@ -27,7 +30,7 @@ MyError.getInitialProps = async (context) => {
   if (res?.statusCode === 404) {
     return errorInitialProps;
   }
-  
+
   // Running on the server, the response object (`res`) is available.
   //
   // Next.js will pass an err on the server if a page's data fetching methods

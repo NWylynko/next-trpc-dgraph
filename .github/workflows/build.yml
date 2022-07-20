@@ -44,6 +44,7 @@ jobs:
 
       - name: Build Website
         run: yarn web:build
-
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       - name: Stop Dgraph
         run: docker-compose down

@@ -18,38 +18,32 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      # - name: Install Node ${{ matrix.node-version }} and Yarn
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: ${{ matrix.node-version }}
-      #     cache: "yarn"
+      - name: Install Node ${{ matrix.node-version }} and Yarn
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "yarn"
 
-      # - name: Install Deps
-      #   run: yarn install --frozen-lockfile
+      - name: Install Deps
+        run: yarn install --frozen-lockfile
 
-      # - name: Start Dgraph
-      #   run: yarn database:start && sleep 20
+      - name: Start Dgraph
+        run: yarn database:start && sleep 20
 
       - name: Write Env
         run: cp .env.development .env
 
-      - run: cat .env
+      - name: Push Schema
+        run: yarn schema:push
 
-      - run: npm i -g @next/env
+      - name: Run Codegen
+        run: yarn graphql:build
 
-      - run: node .env.js
+      - name: Typecheck
+        run: yarn types:check
 
-      # - name: Push Schema
-      #   run: yarn schema:push
+      - name: Build Website
+        run: yarn build:web
 
-      # - name: Run Codegen
-      #   run: yarn graphql:build
-
-      # - name: Typecheck
-      #   run: yarn types:check
-
-      # - name: Build Website
-      #   run: yarn build:web
-
-      # - name: Stop Dgraph
-      #   run: docker-compose down
+      - name: Stop Dgraph
+        run: docker-compose down

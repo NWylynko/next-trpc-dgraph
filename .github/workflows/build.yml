@@ -43,7 +43,7 @@ jobs:
         run: yarn types:check
 
       - name: Build Website
-        run: yarn build:web
+        run: yarn web:build
 
       - name: Stop Dgraph
         run: docker-compose down

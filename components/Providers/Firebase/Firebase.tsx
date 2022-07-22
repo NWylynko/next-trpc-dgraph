@@ -1,5 +1,5 @@
 import { FirebaseProvider } from "@bluesky-digital-labs/next-firebase-auth";
-import { site } from "../../site";
+import { site } from "../../../site";
 
 export const Firebase: typeof FirebaseProvider = (props) => {
 

@@ -1,5 +1,5 @@
 import PlausibleProvider from 'next-plausible';
-import { site } from '../../site';
+import { site } from '../../../site';
 
 type PlausibleProps = Parameters<typeof PlausibleProvider>[0]
 type Plausible = (props: Omit<PlausibleProps, "domain">) => JSX.Element

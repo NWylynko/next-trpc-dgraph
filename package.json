@@ -18,7 +18,8 @@
     "graphql:build": "graphql-codegen -r ./env.js",
     "graphql:dev": "nodemon -e graphql --exec yarn graphql:build",
     "schema:push": "node ./schema.js push http://localhost:8080 ./schema.graphql",
-    "schema:validate": "node ./schema.js validate http://localhost:8080 ./schema.graphql"
+    "schema:validate": "node ./schema.js validate http://localhost:8080 ./schema.graphql",
+    "test": "vitest"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
@@ -63,6 +64,7 @@
     "eslint-config-next": "12.2.2",
     "nodemon": "^2.0.19",
     "npm-run-all": "^4.1.5",
-    "typescript": "4.7.4"
+    "typescript": "4.7.4",
+    "vitest": "^0.18.1"
   }
 }

@@ -1,8 +1,8 @@
 
 export const theme = {
   colours: {
-    background: "#231D1A",
-    foreground: "#EFF2F1",
+    background: "#EFF2F1",
+    foreground: "#26272C",
     accent1: "#4059AD",
     accent2: "#97D8C4",
     success: "#2CA58D",

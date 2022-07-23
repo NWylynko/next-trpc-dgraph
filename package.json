@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "run-p -c database:dev dev2",
+    "dev": "run-p database:dev dev2",
     "dev2": "sleep 20 && run-p -c graphql:dev types:dev web:dev",
     "build": "run-s graphql:build web:build",
     "start": "run-p database:dev web:start",
@@ -42,6 +42,7 @@
     "next-seo": "^5.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.33.1",
     "react-is": "^18.2.0",
     "react-query": "^3.39.2",
     "sharp": "^0.30.7",

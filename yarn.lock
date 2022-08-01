@@ -1099,10 +1099,10 @@
     "@graphql-tools/utils" "^8.8.0"
     tslib "~2.4.0"
 
-"@graphql-codegen/typescript-generic-sdk@^2.4.2":
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-generic-sdk/-/typescript-generic-sdk-2.4.2.tgz#2b41657ddcc97c75950f004853e3dd82b186835f"
-  integrity sha512-e8tAbYPvbqZGNoTnwhfLyaf3DxP8QFHq8Tu89SaPtdDKDUv6LxZxGJ5+yKN26G3ScN/hEOPSLZ5KxIPYV/8q+g==
+"@graphql-codegen/typescript-generic-sdk@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-generic-sdk/-/typescript-generic-sdk-2.5.0.tgz#55673be33535876f0b61f28bdd12e9b580f4ca67"
+  integrity sha512-mE2lGe6f0qRD38IRhpzIn2UvLnEZjhlM+Dsrc6SyZtiE+apw3ZGaAAmp1jBN1Op22yqx0qUBhBLk5H4/EdiajA==
   dependencies:
     "@graphql-codegen/plugin-helpers" "^2.6.0"
     "@graphql-codegen/visitor-plugin-common" "2.12.0"
